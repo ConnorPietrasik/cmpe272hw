@@ -1,13 +1,29 @@
-h1.title {
+.title {
     text-align: center;
     font-size: 4em;
 }
 
-a.nav-item {
+.nav-item {
     text-align: center;
     font-size: 2em;
 }
 
-tr.nav-row {
+.nav-row {
     align-items: center;
+}
+
+.disclaimer {
+    font-size: 0.5em;
+}
+
+.prod-name {
+    font-size: 2em;
+}
+
+.prod-desc {
+    font-size: 1em;
+}
+
+.prod-price {
+    font-size: 1em;
 }
