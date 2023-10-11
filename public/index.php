@@ -7,5 +7,8 @@
     </head>
     <body>
         <?php readfile("nav.html"); ?>
+        <h2>Welcome!</h2>
+        <h3>This is the home page</h3>
+        <h4>Do you feel at home?</h4>
     </body>
 </html>
