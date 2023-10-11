@@ -1,11 +1,15 @@
+h2 {
+    font-size: 2em;
+}
+
 .title {
     text-align: center;
-    font-size: 4em;
+    font-size: 8em;
 }
 
 .nav-item {
     text-align: center;
-    font-size: 2em;
+    font-size: 4em;
 }
 
 .nav-row {
@@ -17,7 +21,7 @@
 }
 
 .prod-name {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .prod-desc {
@@ -31,4 +35,12 @@
 img.prod-pic {
     width: 150px;
     height: 150px;
+}
+
+.news-title {
+    font-size: 1.5em;
+}
+
+.news-body {
+    font-size: 1em;
 }
