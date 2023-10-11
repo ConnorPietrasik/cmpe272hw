@@ -14,7 +14,7 @@
             foreach($products as $prod){
                 if ($prod !== "." && $prod !== ".."){
                     echo "<hr><h3 class=\"prod-name\">$prod</h3>";
-                    echo "<img src=\"products/$prod/main.png\" alt=\"$prod image\">";
+                    echo "<img src=\"products/$prod/main.png\" alt=\"$prod image\" class=\"prod-pic\">";
                     echo "<p class=\"prod-desc\">";
                     readfile("products/$prod/desc.txt");
                     echo "</p>";

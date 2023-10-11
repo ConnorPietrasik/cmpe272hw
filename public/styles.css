@@ -27,3 +27,8 @@
 .prod-price {
     font-size: 1em;
 }
+
+img.prod-pic {
+    width: 150px;
+    height: 150px;
+}
