@@ -1,0 +1,13 @@
+h1.title {
+    text-align: center;
+    font-size: 4em;
+}
+
+a.nav-item {
+    text-align: center;
+    font-size: 2em;
+}
+
+tr.nav-row {
+    align-items: center;
+}
