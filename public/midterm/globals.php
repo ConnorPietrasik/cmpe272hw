@@ -8,7 +8,9 @@
         <?php
 
         // Add code HERE
+        echo "<pre>GLOBALS:\n";
         var_dump($GLOBALS);
+        echo "</pre>";
 
 
 
