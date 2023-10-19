@@ -12,9 +12,7 @@
             localStorage.setItem("lastname", "Smith");
 
             // Add code below 
-            $name = localStorage.getItem("lastname");
-            echo "name is $name";
-
+            document.getElementById("result").innerHTML = localStorage.getItem("lastname");
 
 
 
