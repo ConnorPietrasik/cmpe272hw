@@ -8,7 +8,7 @@
         <?php
 
         // Add code HERE
-        print_r($GLOBALS);
+        json_encode($GLOBALS);
 
 
 
