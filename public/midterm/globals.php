@@ -8,7 +8,7 @@
         <?php
 
         // Add code HERE
-        echo "$GLOBALS";
+        print_r($GLOBALS);
 
 
 
