@@ -39,6 +39,8 @@
             echo "<h2 class=\"error\">Wrong user/pass, try again:</h2>";
             readfile("login.html");
         }
+
+        var_dump($_POST);
     ?>
 </body>
 
