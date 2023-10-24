@@ -14,6 +14,7 @@
         function login() {
             if (!$_POST["username"] || !$_POST["password"]){
                 readfile("login.html");
+                return true;
             }
             else {
                 $file = fopen("../logins.txt", "r");
