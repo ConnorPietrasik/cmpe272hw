@@ -26,10 +26,6 @@
                         $line = rtrim($line, "\r\n");
                         $tmp = explode(",", $line);
 
-                        echo "<pre>";
-                        var_dump($tmp);
-                        echo "</pre>";
-
                         if ($tmp[0] == $_POST["username"] && $tmp[1] == $_POST["password"]){
                             echo "<h2>Users:</h2>";
                             readfile("../users.txt");
@@ -45,10 +41,6 @@
             echo "<h2 class=\"error\">Wrong user/pass, try again:</h2>";
             readfile("login.html");
         }
-
-        echo "<pre>";
-        var_dump($_POST);
-        echo "</pre>";
     ?>
 </body>
 
