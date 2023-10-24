@@ -23,6 +23,7 @@
                 }
                 else{
                     while (($line = fgets($file)) !== false){
+                        $line = rtrim($line, "\r\n");
                         $tmp = explode(",", $line);
 
                         echo "<pre>";
