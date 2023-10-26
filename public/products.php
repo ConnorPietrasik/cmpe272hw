@@ -15,7 +15,7 @@
                 foreach($products as $prod){
                     if ($prod !== "." && $prod !== ".."){
                         echo "<hr><button name=\"$prod\"";
-                        echo "<h3 class=\"prod-name\">$prod</h3>";
+                        echo "<h3 class=\"prod-name\">$prod</h3><br>";
                         echo "<img src=\"products/$prod/main.png\" alt=\"$prod image\" class=\"prod-pic\">";
                         echo "</button>";
                         echo "<p class=\"prod-desc\">";
