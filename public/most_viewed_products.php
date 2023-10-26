@@ -12,7 +12,7 @@
         <p class="disclaimer">Disclaimer: All purchases are final, no refunds under any circumstances.</p>
         <table style="width: 100%; vertical-align: top;"><tr>
             <td style="width: 50%">
-                <h2>Personally Viewed Products:</h2>
+                <h2>Personally Most-Viewed Products:</h2>
                 <?php 
                 if (isset($_COOKIE["recent"])){
                     $viewed = $_COOKIE;
@@ -27,6 +27,7 @@
                 ?>
             </td>
             <td style="width: 50%">
+                <h2>Globally Most-Viewed Products:</h2>
                 <?php 
                     $products = scandir('products');
                     unset($products["."]);
