@@ -15,7 +15,13 @@ else setcookie($prod, 1, time() + (86400 * 30));
 if (isset($_COOKIE["recent"])){
     $recents = explode(",", $_COOKIE["recent"]);
 
-    if (count($recents) > 4) unset($recents[4]);
+    //Moves product to front of recent instead of having duplicates
+    $i = array_search($prod, $recents);
+    if ($i === false){
+        if (count($recents) > 4) unset($recents[4]);
+    }
+    else unset($recents[$i]);
+
     $ret = "$prod," . implode(",", $recents);
 
     setcookie("recent", $ret, time() + (86400 * 30));
