@@ -17,7 +17,7 @@
 <body>
     <?php readfile("nav.html"); ?>
     <h2>Product:</h2>
-    <pre> <?php var_dump(array_keys($_POST)) ?> </pre>
+    <pre> <?php echo array_keys($_POST)[0] ?> </pre>
 </body>
 
 </html>
