@@ -64,3 +64,8 @@ img.prod-pic {
 .recently-viewed {
     font-size: 1em;
 }
+
+.most-viewed {
+    font-size: 1em;
+    margin-left: 5em;
+}
