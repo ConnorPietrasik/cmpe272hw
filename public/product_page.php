@@ -1,7 +1,7 @@
 <?php 
 require_once("display_products.php");
 
-if (empty($_POST)) {
+if (count($_POST) != 1) {
     echo "Bad link! Go away!";
     die();
 }
@@ -43,9 +43,11 @@ else setcookie("recent", $prod, time() + (86400 * 30));
     <?php readfile("nav.html"); ?>
 
     <?php
-    $prod = array_keys($_POST)[0];
-    if (count($_POST) == 1) display(array_keys($_POST));
-    else echo "Bad post";
+        display(array_keys($_POST));
+
+        $prod = array_keys($_POST)[0];
+        $count = trim(file_get_contents("products/$prod/view_count.txt"));
+        file_put_contents("products/$prod/view_count.txt", (int)$count + 1);
     ?>
 </body>
 
