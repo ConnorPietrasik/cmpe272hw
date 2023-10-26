@@ -9,6 +9,7 @@
         <?php readfile("nav.html"); ?>
         <h2>Products:</h2>
         <p class="disclaimer">Disclaimer: All purchases are final, no refunds under any circumstances.</p>
+        <a class="recently-viewed" href="previous_products.php">Recently viewed</a>
         <form action="product_page.php" method="post">
             <?php  
                 $products = scandir('products');
