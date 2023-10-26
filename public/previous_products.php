@@ -1,3 +1,5 @@
+<?php require_once("display_products.php") ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,26 +14,33 @@
         
         <pre><?php var_dump($_COOKIE) ?></pre>
 
-        <!--
-        <form action="product_page.php" method="post">
-            <?php  
-                $products = scandir('products');
-                foreach($products as $prod){
-                    if ($prod !== "." && $prod !== ".."){
-                        echo "<hr><button name=\"$prod\"";
-                        echo "<h3 class=\"prod-name\">$prod</h3><br>";
-                        echo "<img src=\"products/$prod/main.png\" alt=\"$prod image\" class=\"prod-pic\">";
-                        echo "</button>";
-                        echo "<p class=\"prod-desc\">";
-                        readfile("products/$prod/desc.txt");
-                        echo "</p>";
-                        echo "<p class=\"prod-price\">";
-                        readfile("products/$prod/price.txt");  
-                        echo "</p>";
-                    }
+        <?php 
+        if (isset($_COOKIE["recent"])){
+            $recents = explode(",", $_COOKIE["recent"]);
+
+            display($recents, 1);
+
+            /*
+            echo "<form action=\"product_page.php\" method=\"post\">";
+            foreach($recent as $prod){
+                if ($prod !== "." && $prod !== ".."){
+                    echo "<hr><button name=\"$prod\"";
+                    echo "<h3 class=\"prod-name\">$prod</h3><br>";
+                    echo "<img src=\"products/$prod/main.png\" alt=\"$prod image\" class=\"prod-pic\">";
+                    echo "</button>";
+                    echo "<p class=\"prod-desc\">";
+                    readfile("products/$prod/desc.txt");
+                    echo "</p>";
+                    echo "<p class=\"prod-price\">";
+                    readfile("products/$prod/price.txt");  
+                    echo "</p>";
                 }
-            ?>
-        </form>
-            -->
+            }
+            echo "</form>";*/
+        }
+        else {
+            echo "No products recently viewed!";
+        }
+        ?>
     </body>
 </html>
