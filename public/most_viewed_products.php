@@ -19,7 +19,13 @@
                     unset($viewed["recent"]);
                     arsort($viewed);
 
+                    echo "<pre>";
                     var_dump($viewed);
+                    echo "</pre>";
+
+                    echo "<pre>";
+                    var_dump($_COOKIE);
+                    echo "</pre>";
                     //display($recents, 1);
                 }
                 else {
