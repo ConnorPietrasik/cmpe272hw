@@ -19,7 +19,7 @@
                     unset($viewed["recent"]);
                     arsort($viewed);
 
-                    display(array_keys(array_slice($viewed, 0, 5)));
+                    display(array_keys(array_slice($viewed, 0, 5)), true);
                 }
                 else {
                     echo "No products recently viewed!";
@@ -39,7 +39,7 @@
                     }
 
                     arsort($counts);
-                    display(array_keys(array_slice($counts, 0, 5)));
+                    display(array_keys(array_slice($counts, 0, 5)), true);
                 ?>
             </td>
         </tr></table>
