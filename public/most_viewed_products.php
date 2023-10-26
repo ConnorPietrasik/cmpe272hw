@@ -10,7 +10,7 @@
     <body>
         <?php readfile("nav.html"); ?>
         <p class="disclaimer">Disclaimer: All purchases are final, no refunds under any circumstances.</p>
-        <table style="width: 100%"><tr>
+        <table style="width: 100%; vertical-align: top;"><tr>
             <td style="width: 50%">
                 <h2>Personally Viewed Products:</h2>
                 <?php 
@@ -27,12 +27,19 @@
                 ?>
             </td>
             <td style="width: 50%">
-                <pre>
                 <?php 
                     $products = scandir('products');
-                    var_dump($products);
+                    unset($products["."]);
+                    unset($products[".."]);
+
+                    $counts = [];
+                    foreach($products as $prod){
+                        $counts[$prod] = trim(file_get_contents("products/$prod/view_count.txt"));
+                    }
+
+                    arsort($counts);
+                    display(array_keys(array_slice($counts, 0, 5)));
                 ?>
-                </pre>
             </td>
         </tr></table>
 
