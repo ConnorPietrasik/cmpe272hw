@@ -26,6 +26,14 @@
                 }
                 ?>
             </td>
+            <td style="width: 50%">
+                <pre>
+                <?php 
+                    $products = scandir('products');
+                    var_dump($products);
+                ?>
+                </pre>
+            </td>
         </tr></table>
 
     </body>
