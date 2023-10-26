@@ -1,2 +1,2 @@
 admin,pass
-user,pass
+admin2,pass
