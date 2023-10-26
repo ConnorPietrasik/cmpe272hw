@@ -18,7 +18,7 @@ if (isset($_COOKIE["recent"])){
     if (count($recents) > 4) unset($recents[4]);
     $ret = "$prod," . implode(",", $recents);
 
-    setcookie($prod, $recents, time() + (86400 * 30));
+    setcookie("recent", $ret, time() + (86400 * 30));
 }
 else setcookie("recent", $prod, time() + (86400 * 30));
 
