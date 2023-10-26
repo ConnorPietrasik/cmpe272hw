@@ -1,5 +1,5 @@
 <?php
-function display(array $products, bool $is_clickable = 0){
+function display(array $products, bool $is_clickable = false){
 
     if ($is_clickable){
         echo "<form action=\"product_page.php\" method=\"post\">";
