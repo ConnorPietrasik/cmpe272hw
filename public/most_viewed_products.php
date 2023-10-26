@@ -10,8 +10,8 @@
     <body>
         <?php readfile("nav.html"); ?>
         <p class="disclaimer">Disclaimer: All purchases are final, no refunds under any circumstances.</p>
-        <table style="width: 100%; vertical-align: top;"><tr>
-            <td style="width: 50%">
+        <table style="width: 100%;"><tr>
+            <td class="column" style="width: 50%">
                 <h2>Personally Most-Viewed Products:</h2>
                 <?php 
                 if (isset($_COOKIE["recent"])){
@@ -26,7 +26,7 @@
                 }
                 ?>
             </td>
-            <td style="width: 50%">
+            <td class="column" style="width: 50%">
                 <h2>Globally Most-Viewed Products:</h2>
                 <?php 
                     $products = scandir('products');
