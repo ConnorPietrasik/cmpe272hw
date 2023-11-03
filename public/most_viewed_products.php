@@ -24,9 +24,7 @@
         <td class="column" style="width: 50%">
             <h2>Globally Most-Viewed Products:</h2>
             <?php 
-                $products = scandir('products');
-                unset($products["."]);
-                unset($products[".."]);
+                $products = array_diff(scandir('products'), [".", ".."]);
 
                 $counts = [];
                 foreach($products as $prod){
