@@ -17,7 +17,7 @@
 
         public function getAllUsers(): array {
             $query = 'SELECT * FROM user';
-            $statement = $this->database->prepare($query);
+            $statement = $this->db->prepare($query);
             $statement->execute();
 
             $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
