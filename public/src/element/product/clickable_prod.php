@@ -4,8 +4,8 @@
     <img src="/products/<?=$prod?>/main.png" alt="<?=$prod?> image" class="prod-pic">
 </button>
 <p class="prod-desc">
-    <?php readfile("/products/$prod/desc.txt"); ?>
+    <?php readfile($_SERVER['DOCUMENT_ROOT']."/products/$prod/desc.txt"); ?>
 </p>
 <p class="prod-price">
-    <?php readfile("/products/$prod/price.txt"); ?>
+    <?php readfile($_SERVER['DOCUMENT_ROOT']."/products/$prod/price.txt"); ?>
 </p>

@@ -1,5 +1,3 @@
-<?php require_once("display_products.php"); ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +14,7 @@
 
         <?php 
             $products = scandir('products');
-            display($products, true);
+            include("src/element/product/clickable_products.php");
         ?>
     </body>
 </html>

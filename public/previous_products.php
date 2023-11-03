@@ -1,5 +1,3 @@
-<?php require_once("display_products.php"); ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,9 +12,8 @@
 
         <?php 
         if (isset($_COOKIE["recent"])){
-            $recents = explode(",", $_COOKIE["recent"]);
-
-            display($recents, 1);
+            $products = explode(",", $_COOKIE["recent"]);
+            include("src/element/product/clickable_products.php");
         }
         else {
             echo "No products recently viewed!";
