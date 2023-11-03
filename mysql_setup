@@ -1,0 +1,27 @@
+CREATE DATABASE IF NOT EXISTS stuffco;
+
+USE stuffco;
+
+CREATE TABLE IF NOT EXISTS user(
+	user_id		INT NOT NULL AUTO_INCREMENT,
+    username    VARCHAR(255) NOT NULL,
+	first_name	VARCHAR(255),
+	last_name	VARCHAR(255),
+	email       VARCHAR(255),
+    home        VARCHAR(255),
+    home_phone  CHAR(10),
+    cell_phone  CHAR(10),
+	PRIMARY KEY (user_id)
+);
+
+CREATE TABLE IF NOT EXISTS password(
+	user_id 	INT NOT NULL,
+	password	CHAR(60) NOT NULL,
+	PRIMARY KEY(user_id, password),
+	CONSTRAINT fk_password_user_id
+		FOREIGN KEY(user_id) REFERENCES user(user_id) 
+		ON DELETE CASCADE
+);
+
+\! echo\ &echo "Tables created:"
+SHOW TABLES;
