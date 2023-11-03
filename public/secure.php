@@ -3,7 +3,7 @@
     include("src/element/head.php");
 
     function login() {
-        if (!$_POST["username"] || !$_POST["password"]){
+        if (!@$_POST["username"] || !@$_POST["password"]){
             readfile("login.html");
             return true;
         }
