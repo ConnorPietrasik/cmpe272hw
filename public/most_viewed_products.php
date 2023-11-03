@@ -1,5 +1,3 @@
-<?php require_once("display_products.php"); ?>
-
 <!DOCTYPE html>
 <html>
     <head>
