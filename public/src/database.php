@@ -3,7 +3,7 @@
         protected $db;
 
         public function __construct(){
-            $env = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/.env');
+            $env = parse_ini_file($_SERVER['DOCUMENT_ROOT'].'/../.env');
 
             try{
                 $this->db = new PDO("mysql:host=".$env["DB_HOST"].";dbname=".$env["DB_NAME"], $env["DB_USER"], $env["DB_PASS"]);
