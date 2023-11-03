@@ -43,9 +43,9 @@ else setcookie("recent", $prod, time() + (86400 * 30));
     <?php readfile("nav.html"); ?>
 
     <?php
-        display(array_keys($_POST));
-
         $prod = array_keys($_POST)[0];
+        include("src/element/product/full_prod.php");
+
         $count = trim(file_get_contents("products/$prod/view_count.txt"));
         file_put_contents("products/$prod/view_count.txt", (int)$count + 1);
     ?>
