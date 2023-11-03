@@ -1,6 +1,4 @@
 <?php 
-require_once("display_products.php");
-
 if (count($_POST) != 1) {
     echo "Bad link! Go away!";
     die();
