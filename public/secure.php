@@ -4,7 +4,7 @@
 
     function login() {
         if (!@$_POST["username"] || !@$_POST["password"]){
-            readfile("login.html");
+            readfile("src/element/login.html");
             return true;
         }
         else {
@@ -30,6 +30,6 @@
 
     if (!login()){
         echo "<h2 class=\"error\">Wrong user/pass, try again:</h2>";
-        readfile("login.html");
+        readfile("src/element/login.html");
     }
 ?>
