@@ -2,7 +2,7 @@
     $title = "Combined Users";
     include("src/element/head.php");
 ?>
-<h3>All User Lists:</h3>
+<h2>All User Lists:</h2>
 <h3>StuffCo:</h3>
 <?php
     require_once("src/database.php");
@@ -20,14 +20,12 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FAILONERROR, true);
 
-        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        //A specified user-agent is needed for Sayali's, this is what bash uses and it works so keeping it
         curl_setopt($ch, CURLOPT_HTTPHEADER, ['User-Agent: curl/8.1.2']);
 
         $users = curl_exec($ch);
         if (curl_errno($ch)){
             echo "<p class = \"error\">Failed to access user list from $name via ".$url." due to ".curl_error($ch)."</p>";
-            
-            echo "Curl header:".curl_getinfo($ch)['request_header'];
         }
         else {
             $data = json_decode($users);
