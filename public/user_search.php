@@ -24,6 +24,5 @@
     $data = $db->getAllUsers();
     include("src/element/table_display.php");
 
-    $data = $_POST;
-    include("src/element/table_display.php");
+    var_dump($_POST);
 ?>
