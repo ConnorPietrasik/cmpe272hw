@@ -44,14 +44,11 @@
                 $args[] = $email;
             }
             if (isset($phone)) {
-                $searches[] = '(INSTR(home_phone, ?) > 0 OR (INSTR(cell_phone, ?) > 0)';
+                $searches[] = '(INSTR(home_phone, ?) > 0 OR INSTR(cell_phone, ?) > 0)';
                 $args[] = $phone;
                 $args[] = $phone;
             }
             $query.= implode(" AND ", $searches);
-
-            echo $query;
-            var_dump($args);
 
             $statement = $this->db->prepare($query);
             $statement->execute($args);
