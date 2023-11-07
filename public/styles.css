@@ -77,9 +77,10 @@ img.prod-pic {
 .user-list {
     border: 3px solid;
     border-collapse: collapse;
+    border-spacing: 4em;
 }
 
-.user-list > tr {
+.user-list tr {
     border-top: 1px solid;
     border-bottom: 1px solid;
 }
