@@ -74,26 +74,26 @@ img.prod-pic {
     vertical-align: top;
 }
 
-.user-list {
+.table-display {
     border: 3px solid;
     border-collapse: collapse;
 }
 
-.user-list td {
+.table-display td {
     border-bottom: 1px solid;
     padding-right: 1em;
 }
 
-.user-list td:last-child {
+.table-display td:last-child {
     padding-right: 0px;
 }
 
-.user-list th {
+.table-display th {
     font-weight: bold;
     border-bottom: 2px solid;
     padding-right: 1em;
 }
 
-.user-list th:last-child {
+.table-display th:last-child {
     padding-right: 0px;
 }
