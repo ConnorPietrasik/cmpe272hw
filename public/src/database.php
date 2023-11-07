@@ -24,8 +24,10 @@
             return $users;
         }
 
-        //Expects at least one key, accepted: "first_name", "last_name", "email", "phone"
+        //Search by any / all of options, no filter = get all
         public function searchUsers($first_name = null, $last_name = null, $email = null, $phone = null){
+            if (!$first_name && !$last_name && !$email && !$phone) return $this->getAllUsers();
+
             $query = 'SELECT * FROM user WHERE ';
             $searches = [];
             $args = [];
