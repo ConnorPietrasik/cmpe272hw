@@ -30,7 +30,7 @@
             $searches = [];
             $args = [];
             if (isset($first_name)) {
-                $searches[] = 'first_name = ?';
+                $searches[] = 'INSTR(first_name, ?) > 0';
                 $args[] = $first_name;
             }
             if (isset($last_name)) {
@@ -38,11 +38,11 @@
                 $args[] = $last_name;
             }
             if (isset($email)) {
-                $searches[] = 'email = ?';
+                $searches[] = 'INSTR(email, ?) > 0';
                 $args[] = $email;
             }
             if (isset($phone)) {
-                $searches[] = '(home_phone = ? OR cell_phone = ?)';
+                $searches[] = '(INSTR(home_phone, ?) > 0 OR (INSTR(cell_phone, ?) > 0)';
                 $args[] = $phone;
                 $args[] = $phone;
             }
