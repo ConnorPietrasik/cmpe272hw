@@ -4,8 +4,7 @@
 ?>
 <h2>User Search</h2>
 <a href="add_user.php">Add a new user</a>
-<br>
-<a href="combined_users.php">All users, including other sites</a>
+<a href="combined_users.php" style="padding-left: 5em;">All users, including other sites</a>
 <br>
 <form action="user_search.php" method="get" class="user-search">
     <label for="first_name">First Name:</label>
