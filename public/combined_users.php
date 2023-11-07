@@ -2,8 +2,8 @@
     $title = "Combined Users";
     include("src/element/head.php");
 ?>
-<h2>All User Lists:</h2>
-<h3>StuffCo:</h3>
+<h2>All User Lists</h2>
+<h3>StuffCo</h3>
 <?php
     require_once("src/database.php");
     $data = $db->getAllUsers();
@@ -12,7 +12,7 @@
 
     $urls = ['Blend Station'=>'https://sayali-cmpe272.bayaskarpowerpack.co.in/exposed_userdb.php', 
             'Student Furniture Spot'=>'https://subramanyajagadeesh-0a2895b9a580.herokuapp.com/exposed_users.php', 
-            'RNR Elektronics'=>'https://rnrnattojicmpe272.000webhostapp.com/assignment-4/exposecontacts.php'];
+            'RNR Elektronics'=>'http://cmpe272.rnrnattoji.click/assignment-4/exposecontacts.php'];
 
     foreach($urls as $name => $url){
         echo "<h3>".$name."</h3>";

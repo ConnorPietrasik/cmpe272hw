@@ -24,6 +24,36 @@
             return $users;
         }
 
+        //Expects at least one key, accepted: "first_name", "last_name", "email", "phone"
+        public function searchUsers($first_name = null, $last_name = null, $email = null, $phone = null){
+            $query = 'SELECT * FROM user WHERE ';
+            $searches = [];
+            $args = [];
+            if (isset($first_name)) {
+                $searches[] = 'first_name = ?';
+                $args[] = $first_name;
+            }
+            if (isset($last_name)) {
+                $searches[] = 'last_name = ?';
+                $args[] = $last_name;
+            }
+            if (isset($email)) {
+                $searches[] = 'email = ?';
+                $args[] = $email;
+            }
+            if (isset($phone)) {
+                $searches[] = '(home_phone = ? OR cell_phone = ?)';
+                $args[] = $phone;
+                $args[] = $phone;
+            }
+            $query.= implode(" AND ", $searches);
+
+            $statement = $this->db->prepare($query);
+            $statement->execute($args);
+            $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            return $users;
+            }
+
     }
 
     $db = new Database;
