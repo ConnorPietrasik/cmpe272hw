@@ -15,6 +15,7 @@
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     $users = curl_exec($ch);
+    var_dump($users);
     $data = json_decode($users);
     include("src/element/table_display.php");
     curl_close($ch);
