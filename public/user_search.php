@@ -2,7 +2,7 @@
     $title = "User Search";
     include("src/element/head.php");
 ?>
-<table>
+<table class="layout">
     <tr>
         <td class="column" style="padding-right: 3em; width: 50%;">
             <h2>User Search</h2>

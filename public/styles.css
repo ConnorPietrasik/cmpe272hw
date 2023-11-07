@@ -101,3 +101,7 @@ img.prod-pic {
 .note {
     font-size: 0.75em;
 }
+
+.layout {
+    width: 100%;
+}
