@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS stuffco;
 USE stuffco;
 
 CREATE TABLE IF NOT EXISTS user(
-	user_id		INT NOT NULL AUTO_INCREMENT,
+	id			INT NOT NULL AUTO_INCREMENT,
     username    VARCHAR(255) NOT NULL,
 	first_name	VARCHAR(255),
 	last_name	VARCHAR(255),
