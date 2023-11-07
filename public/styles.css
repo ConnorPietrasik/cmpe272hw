@@ -77,21 +77,23 @@ img.prod-pic {
 .user-list {
     border: 3px solid;
     border-collapse: collapse;
-    border-spacing: 4em;
 }
 
 .user-list td {
-    border-top: 1px solid;
     border-bottom: 1px solid;
-    border-left: 10em solid transparent;
+    padding-left: 1em;
 }
 
 .user-list td:first-child {
-    border-left: 0px;
+    padding-left: 0px;
 }
 
 .user-list th {
     font-weight: bold;
-    border-top: 0px;
     border-bottom: 2px solid;
+    padding-left: 1em;
+}
+
+.user-list th:first-child {
+    padding-left: 0px;
 }
