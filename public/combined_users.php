@@ -22,6 +22,7 @@
         $users = curl_exec($ch);
         if (curl_errno($ch)){
             echo "<p class = \"error\">Failed to access user list from $name via ".$url." due to ".curl_error($ch);
+            echo "Curl header:".curl_getinfo($ch)['request_header'];
         }
         else {
             $data = json_decode($users);
