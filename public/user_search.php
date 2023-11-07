@@ -4,7 +4,7 @@
 ?>
 <table>
     <tr>
-        <td class="column" style="padding-right: 3em;">
+        <td class="column" style="padding-right: 3em; width: 50%;">
             <h2>User Search</h2>
             <form action="user_search.php" method="get" class="user-search">
                 <label for="first_name">First Name:</label>
