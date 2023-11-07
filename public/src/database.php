@@ -51,6 +51,7 @@
             $query.= implode(" AND ", $searches);
 
             echo $query;
+            var_dump($args);
 
             $statement = $this->db->prepare($query);
             $statement->execute($args);
