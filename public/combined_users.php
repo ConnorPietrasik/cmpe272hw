@@ -19,9 +19,10 @@
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FAILONERROR, true);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         $users = curl_exec($ch);
         if (curl_errno($ch)){
-            echo "<p class = \"error\">Failed to access user list from $name via ".$url." due to ".curl_error($ch);
+            echo "<p class = \"error\">Failed to access user list from $name via ".$url." due to ".curl_error($ch)."</p>";
             echo "Curl header:".curl_getinfo($ch)['request_header'];
         }
         else {
