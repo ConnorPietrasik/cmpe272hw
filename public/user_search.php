@@ -26,6 +26,9 @@
 
     if (!empty($_GET)){
         $data = $db->searchUsers($_GET["first_name"] ?: null, $_GET["last_name"] ?: null, $_GET["email"] ?: null, $_GET["phone"] ?: null);
-        include("src/element/table_display.php");
+        if (!empty($data)){
+            include("src/element/table_display.php");
+        }
+        else echo "<p>No matching users found.</p>";
     }
 ?>
