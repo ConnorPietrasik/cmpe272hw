@@ -80,4 +80,9 @@ img.prod-pic {
 
 .col-names {
     font-weight: bold;
+    border: 1px solid;
+}
+
+.col-names > td {
+    border: 1px solid;
 }
