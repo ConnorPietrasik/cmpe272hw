@@ -56,6 +56,19 @@
             return $users;
         }
 
+        public function addUser($first_name, $last_name, $email = null, $address = null, $home_phone = null, $cell_phone = null){
+            $query = 'INSERT INTO user (first_name, last_name, email, address, home_phone, cell_phone) VALUES (:fn, :ln, :em, :ad, :hp, :cp)';
+            $statement = $this->db->prepare($query);
+            $statement->bindParam('fn', $first_name);
+            $statement->bindParam('ln', $last_name);
+            $statement->bindParam('em', $email);
+            $statement->bindParam('ad', $address);
+            $statement->bindParam('hp', $home_phone);
+            $statement->bindParam('cp', $cell_phone);
+
+            $statement->execute();
+        }
+
     }
 
     $db = new Database;
