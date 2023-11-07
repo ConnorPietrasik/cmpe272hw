@@ -30,3 +30,4 @@
         else echo "<p>No matching users found.</p>";
     }
 ?>
+<a href="add_user.php">Add a new user</a>
