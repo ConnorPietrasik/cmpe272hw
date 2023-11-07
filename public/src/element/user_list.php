@@ -2,9 +2,9 @@
     <tr class="col-names">
         <?php
             foreach($users[0] as $col => $val){
-                echo "<td>";
+                echo "<th>";
                 echo $col;
-                echo "</td>";
+                echo "</th>";
             }
         ?>        
     </tr>
