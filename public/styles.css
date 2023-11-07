@@ -73,3 +73,11 @@ img.prod-pic {
 .column {
     vertical-align: top;
 }
+
+.user-list {
+    border: 1px solid;
+}
+
+.col-names {
+    font-weight: bold;
+}

@@ -1,4 +1,4 @@
-<table>
+<table class="user-list">
     <tr class="col-names">
         <?php
             foreach($users[0] as $col => $val){
