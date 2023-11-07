@@ -50,6 +50,8 @@
             }
             $query.= implode(" AND ", $searches);
 
+            echo $query;
+
             $statement = $this->db->prepare($query);
             $statement->execute($args);
             $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
