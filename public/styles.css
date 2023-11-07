@@ -97,3 +97,7 @@ img.prod-pic {
 .table-display th:last-child {
     padding-right: 0px;
 }
+
+.note {
+    font-size: 0.75em;
+}

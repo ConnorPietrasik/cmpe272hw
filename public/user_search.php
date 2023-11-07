@@ -18,13 +18,11 @@
     <br>
     <input type="submit" value="Search">
 </form>
+<p class="note">Note: An empty search shows all users because it's not filtering out any</p>
+<br>
 <?php
-    require_once("src/database.php");
-
-    $data = $db->getAllUsers();
-    include("src/element/table_display.php");
-
     if (!empty($_GET)){
+        require_once("src/database.php");
         $data = $db->searchUsers($_GET["first_name"] ?: null, $_GET["last_name"] ?: null, $_GET["email"] ?: null, $_GET["phone"] ?: null);
         if (!empty($data)){
             include("src/element/table_display.php");
