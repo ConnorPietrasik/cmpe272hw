@@ -57,7 +57,7 @@
         }
 
         public function addUser($first_name, $last_name, $email = null, $address = null, $home_phone = null, $cell_phone = null){
-            $query = 'INSERT INTO user (first_name, last_name, email, address, home_phone, cell_phone) VALUES (:fn, :ln, :em, :ad, :hp, :cp)';
+            $query = 'INSERT INTO user (first_name, last_name, email, home, home_phone, cell_phone) VALUES (:fn, :ln, :em, :ad, :hp, :cp)';
             $statement = $this->db->prepare($query);
             $statement->bindParam('fn', $first_name);
             $statement->bindParam('ln', $last_name);

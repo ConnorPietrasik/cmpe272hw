@@ -4,10 +4,10 @@
 ?>
 <h2>Add User</h2>
 <form action="add_user.php" method="post" class="add-user">
-    <label for="first_name">First Name:</label>
+    <label for="first_name">First Name:*</label>
     <input type="text" id="first_name" name="first_name" value="" required>
     <br>
-    <label for="last_name">Last Name:</label>
+    <label for="last_name">Last Name:*</label>
     <input type="text" id="last_name" name="last_name" value="" required>
     <br>
     <label for="email">Email:</label>
