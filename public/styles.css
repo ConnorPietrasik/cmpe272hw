@@ -81,19 +81,19 @@ img.prod-pic {
 
 .user-list td {
     border-bottom: 1px solid;
-    padding-left: 1em;
+    padding-right: 1em;
 }
 
-.user-list td:first-child {
-    padding-left: 0px;
+.user-list td:last-child {
+    padding-right: 0px;
 }
 
 .user-list th {
     font-weight: bold;
     border-bottom: 2px solid;
-    padding-left: 1em;
+    padding-right: 1em;
 }
 
-.user-list th:first-child {
-    padding-left: 0px;
+.user-list th:last-child {
+    padding-right: 0px;
 }
