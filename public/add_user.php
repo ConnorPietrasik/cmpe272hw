@@ -41,7 +41,7 @@
 
         require_once("src/database.php");
         $db->addUser($_POST["first_name"] ?: null, $_POST["last_name"] ?: null, $_POST["email"] ?: null, 
-                    $_POST["address"] ?: null, $_POST["home_phone"] ?: null, $_POST["home_phone"] ?: null);
+                    $_POST["address"] ?: null, $_POST["home_phone"] ?: null, $_POST["cell_phone"] ?: null);
 
         echo "<p>User added: </p>";
         $data = [$_POST];
