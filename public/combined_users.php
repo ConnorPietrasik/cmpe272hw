@@ -33,4 +33,6 @@
         }
         curl_close($ch);
     }
+
+    phpinfo();
 ?>
