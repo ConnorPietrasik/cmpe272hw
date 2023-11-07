@@ -1,5 +1,5 @@
 <?php
-    final class Database{
+    class Database{
         protected $db;
 
         public function __construct(){
@@ -25,4 +25,6 @@
         }
 
     }
+
+    $db = new Database;
 ?>
