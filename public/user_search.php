@@ -3,6 +3,8 @@
     include("src/element/head.php");
 ?>
 <h2>User Search</h2>
+<a href="add_user.php">Add a new user</a>
+<a href="combined_users.php">All users, including other sites</a>
 <form action="user_search.php" method="get" class="user-search">
     <label for="first_name">First Name:</label>
     <input type="text" id="first_name" name="first_name" value="<?= $_GET["first_name"] ?? '' ?>">
@@ -30,4 +32,3 @@
         else echo "<p>No matching users found.</p>";
     }
 ?>
-<a href="add_user.php">Add a new user</a>
