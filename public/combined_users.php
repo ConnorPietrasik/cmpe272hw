@@ -2,7 +2,8 @@
     $title = "Combined Users";
     include("src/element/head.php");
 ?>
-<h2>StuffCo Users:</h2>
+<h3>All User Lists:</h3>
+<h3>StuffCo:</h3>
 <?php
     require_once("src/database.php");
     $data = $db->getAllUsers();
@@ -18,8 +19,13 @@
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $users = curl_exec($ch);
-        $data = json_decode($users);
-        include("src/element/table_display.php");
+        if ($users){
+            $data = json_decode($users);
+            include("src/element/table_display.php");
+        }
+        else {
+            echo "Failed to access user list from $name via ".$url;
+        }
         curl_close($ch);
     }
 ?>
