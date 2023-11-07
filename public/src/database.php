@@ -34,7 +34,7 @@
                 $args[] = $first_name;
             }
             if (isset($last_name)) {
-                $searches[] = 'last_name = ?';
+                $searches[] = 'INSTR(last_name, ?) > 0';
                 $args[] = $last_name;
             }
             if (isset($email)) {
@@ -52,7 +52,7 @@
             $statement->execute($args);
             $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
             return $users;
-            }
+        }
 
     }
 
