@@ -5,7 +5,7 @@
 <h2>Local:</h2>
 <?php
     require_once("src/database.php");
-    $users = $db->getAllUsers();
+    $data = $db->getAllUsers();
     
     include("src/element/user_list.php");
 ?>

@@ -1,7 +1,7 @@
-<table class="user-list">
-    <tr class="col-names">
+<table class="table-display">
+    <tr>
         <?php
-            foreach($users[0] as $col => $val){
+            foreach($data[0] as $col => $val){
                 echo "<th>";
                 echo $col;
                 echo "</th>";
@@ -9,9 +9,9 @@
         ?>        
     </tr>
     <?php
-        foreach($users as $user){
+        foreach($data as $row){
             echo "<tr>";
-            foreach($user as $col => $val){
+            foreach($row as $col => $val){
                 echo "<td>";
                 echo $val;
                 echo "</td>";
