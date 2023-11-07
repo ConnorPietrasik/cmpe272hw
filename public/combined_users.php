@@ -20,8 +20,8 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_FAILONERROR, true);
 
-        //A specified user-agent is needed for Sayali's, this is what bash uses and it works so keeping it
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['User-Agent: curl/8.1.2']);
+        //A specified user-agent is needed for Sayali's or it returns 403
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['User-Agent: magic']);
 
         $users = curl_exec($ch);
         if (curl_errno($ch)){
