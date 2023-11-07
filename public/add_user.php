@@ -26,8 +26,6 @@
 </form>
 <br>
 <?php
-    var_dump($_POST);
-
     if (!empty($_POST)){
         if (empty($_POST["first_name"]) || empty($_POST["last_name"])){
             echo "<p class=\"error\">Missing name</p>";
