@@ -18,13 +18,14 @@
         echo "<h3>".$name."</h3>";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_FAILONERROR, true);
         $users = curl_exec($ch);
-        if ($users){
-            $data = json_decode($users);
-            include("src/element/table_display.php");
+        if (curl_errno($ch)){
+            echo "<p class = \"error\">Failed to access user list from $name via ".$url." due to ".curl_error($ch);
         }
         else {
-            echo "Failed to access user list from $name via ".$url;
+            $data = json_decode($users);
+            include("src/element/table_display.php");
         }
         curl_close($ch);
     }
