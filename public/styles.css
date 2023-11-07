@@ -7,13 +7,13 @@ h2 {
     font-size: 4em;
 }
 
-.nav-item {
-    text-align: center;
-    font-size: 3em;
-}
-
 .nav-row {
     align-items: center;
+}
+
+.nav-row a {
+    text-align: center;
+    font-size: 3em;
 }
 
 .disclaimer {

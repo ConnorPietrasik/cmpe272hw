@@ -11,11 +11,12 @@
             <h1 class="title">StuffCo</p>
         </tr>
         <tr class="nav-row">
-            <td style="text-align: center;"><a class="nav-item" href="index.php">Home</a></td>
-            <td style="text-align: center;"><a class="nav-item" href="about.php">About</a></td>
-            <td style="text-align: center;"><a class="nav-item" href="products.php">Products</a></td>
-            <td style="text-align: center;"><a class="nav-item" href="news.php">News</a></td>
-            <td style="text-align: center;"><a class="nav-item" href="contacts.php">Contacts</a></td>
-            <td style="text-align: center;"><a class="nav-item" href="secure.php">Secure</a></td>
+            <td><a href="index.php">Home</a></td>
+            <td><a href="about.php">About</a></td>
+            <td><a href="products.php">Products</a></td>
+            <td><a href="news.php">News</a></td>
+            <td><a href="contacts.php">Contacts</a></td>
+            <td><a href="secure.php">Secure</a></td>
+            <td><a href="user_search.php">User</a></td>
         </tr>
     </table>
