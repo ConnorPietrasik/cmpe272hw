@@ -4,7 +4,7 @@
 ?>
 <table>
     <tr>
-        <td class="column">
+        <td class="column" style="padding-right: 3em;">
             <h2>User Search</h2>
             <form action="user_search.php" method="get" class="user-search">
                 <label for="first_name">First Name:</label>
@@ -23,6 +23,7 @@
             </form>
         </td>
         <td class="column">
+            <h2>Other User Functions</h2>
             <a href="combined_users.php">All users, including other sites</a>
             <br>
             <a href="add_user.php">Add a new user</a>
