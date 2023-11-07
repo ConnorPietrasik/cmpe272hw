@@ -24,9 +24,9 @@
     $data = $db->getAllUsers();
     include("src/element/table_display.php");
 
-    var_dump($_GET);
     if (!empty($_GET)){
-        echo json_encode($db->searchUsers($_GET["first_name"] ?: null, $_GET["last_name"] ?: null, 
-                                        $_GET["email"] ?: null, $_GET["phone"] ?: null));
+        $data = json_encode($db->searchUsers($_GET["first_name"] ?: null, $_GET["last_name"] ?: null, 
+                                            $_GET["email"] ?: null, $_GET["phone"] ?: null));
+        include("src/element/table_display.php");
     }
 ?>
