@@ -7,5 +7,5 @@
     require_once("src/database.php");
     $data = $db->getAllUsers();
     
-    include("src/element/user_list.php");
+    include("src/element/table_display.php");
 ?>
