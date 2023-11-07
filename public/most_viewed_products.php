@@ -3,7 +3,7 @@
     include("src/element/head.php");
 ?>
 <p class="disclaimer">Disclaimer: All purchases are final, no refunds under any circumstances.</p>
-<table class="layout" style="width: 100%">
+<table class="layout">
     <tr>
         <td class="column" style="width: 50%">
             <h2>Personally Most-Viewed Products:</h2>
