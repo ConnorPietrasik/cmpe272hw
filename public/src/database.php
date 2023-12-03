@@ -15,6 +15,15 @@
             }
         }
 
+        public function getAllTables(): array {
+            $temp = $this->db->query("SHOW TABLES")->fetchAll();
+            $ret = [];
+            foreach($temp as $x){
+                $ret[$x[0]] = $this->db->query("SHOW COLUMNS FROM ".$x[0])->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            return $ret;
+        }
+
         public function getAllUsers(): array {
             $query = 'SELECT * FROM user';
             $statement = $this->db->prepare($query);
@@ -68,6 +77,8 @@
 
             $statement->execute();
         }
+
+
 
     }
 
