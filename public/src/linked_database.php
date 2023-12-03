@@ -23,7 +23,7 @@
             $ret = [];
             foreach($temp as $x){
                 var_dump($x);
-                $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x["Tables_in_mp_marketplacedb"])->fetchAll();
+                $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x[0])->fetchAll();
             }
             return $ret;
         }
