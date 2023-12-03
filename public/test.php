@@ -3,6 +3,14 @@
     include("src/element/head.php");
     require_once("src/linked_database.php");
 
-    $data = $db->getTopProductsHitsByCompany(3);
+    $companies = [1, 2, 3];
+    foreach ($companies as $c){
+        echo "<h3>$c</h3>";
+        $data = $db->getTopProductsHitsByCompany($c);
+        include("src/element/table_display.php");
+    }
+    
+    echo "<h3>All</h3>";
+    $data = $db->getTopProductsHitsCombined();
     include("src/element/table_display.php");
 ?>
