@@ -10,6 +10,6 @@
     if(isset($prod["avgrating"])){
         echo "<p class=\"prod-rating\">";
         echo "Rating: ".$prod["avgrating"];
-        echo "</p>";
+        echo "/5</p>";
     }
 ?><p class="prod-views">Views: <?=$prod["hits"]?></p>
