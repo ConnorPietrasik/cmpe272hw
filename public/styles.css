@@ -32,6 +32,10 @@ h2 {
     font-size: 1em;
 }
 
+.prod-price::before {
+    content:"$";
+}
+
 img.prod-pic {
     width: 150px;
     height: 150px;
