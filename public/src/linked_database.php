@@ -72,7 +72,7 @@
             return $users;
         }
 
-        public function getProductsByCompany($company_id){
+        public function getProductsByCompany($company_id): array {
             $domain = $this->getCompanyInfo($company_id)["domain"];
 
             $data = [
@@ -87,6 +87,29 @@
                 $products[$k]["domain"] = $domain;
             }
             return $products;
+        }
+
+        public function getProductById($product_id): array {
+            $data = [
+                "id" => $product_id
+            ];
+            $query = 'SELECT * FROM products WHERE id = :id';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+
+            $product = $statement->fetch(\PDO::FETCH_ASSOC);
+            $product["domain"] = $this->getCompanyInfo($product["companyid"])["domain"];
+            return $product;
+        }
+
+        public function addProductHit($product_id): void {
+            $data = [
+                "id" => $product_id
+            ];
+
+            $query = 'UPDATE products SET hits = hits + 1 WHERE id = :id';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
         }
 
         public function addUser($fname, $lname, $email, $address, $homephone, $cell, $username, $password): void {

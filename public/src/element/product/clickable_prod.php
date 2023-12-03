@@ -1,4 +1,4 @@
-<button name="<?=$prod["name"]?>">
+<button name="<?=$prod["id"]?>">
     <h3 class="prod-name"><?=$prod["name"]?></h3>
     <br>
     <img src="<?=$prod["domain"]?>/images/<?=$prod["img"]?>" alt="<?=$prod["name"]?> image" class="prod-pic">

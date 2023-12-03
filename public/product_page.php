@@ -31,9 +31,10 @@
     $title = array_keys($_POST)[0];
     include("src/element/head.php");
 
-    $prod = array_keys($_POST)[0];
+    $prod_id = array_keys($_POST)[0];
+    require_once("src/linked_database.php");
+    $prod = $db->getProductById($prod_id);
     include("src/element/product/full_prod.php");
 
-    $count = trim(file_get_contents("products/$prod/view_count.txt"));
-    file_put_contents("products/$prod/view_count.txt", (int)$count + 1);
+    $db->addProductHit($prod_id);
 ?>
