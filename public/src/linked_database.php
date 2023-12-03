@@ -19,7 +19,12 @@
         }
 
         public function getAllTables(): array {
-            return $this->db->query("SHOW TABLES")->fetchAll(\PDO::FETCH_ASSOC);
+            $temp = $this->db->query("SHOW TABLES")->fetchAll(\PDO::FETCH_ASSOC);
+            $ret = [];
+            foreach($temp as $x){
+                $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x)->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            return $ret;
         }
 
         public function getAllUsers(): array {
