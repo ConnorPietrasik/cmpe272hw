@@ -7,5 +7,5 @@
     <?=$prod["description"]?>
 </p>
 <p class="prod-price">
-    $<?=$$prod["price"]?>
+    $<?=$prod["price"]?>
 </p>
