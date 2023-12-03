@@ -102,6 +102,19 @@
             return $product;
         }
 
+        public function getTopProductsHits($product_id): array {
+            $data = [
+                "id" => $product_id
+            ];
+            $query = 'SELECT * FROM products WHERE id = :id';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+
+            $product = $statement->fetch(\PDO::FETCH_ASSOC);
+            $product["domain"] = $this->getCompanyInfo($product["companyid"])["domain"];
+            return $product;
+        }
+
         public function addProductHit($product_id): void {
             $data = [
                 "id" => $product_id
@@ -110,6 +123,11 @@
             $query = 'UPDATE products SET hits = hits + 1 WHERE id = :id';
             $statement = $this->db->prepare($query);
             $statement->execute($data);
+        }
+
+        public function fixProductNulls(): void {
+            $this->db->query("UPDATE products SET hits = 0 WHERE hits IS NULL");
+            $this->db->query("ALTER TABLE products ALTER COLUMN hits int(11) NOT NULL");
         }
 
         public function addUser($fname, $lname, $email, $address, $homephone, $cell, $username, $password): void {
