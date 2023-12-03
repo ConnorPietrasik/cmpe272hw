@@ -102,17 +102,28 @@
             return $product;
         }
 
-        public function getTopProductsHits($product_id): array {
+        public function getTopProductsHitsCombined(): array {
+            $products = $this->db->query("SELECT * FROM products ORDER BY hits DESC LIMIT 5")->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($products as $k => $prod){
+                $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
+            }
+            return $products;
+        }
+
+        public function getTopProductsHitsByCompany($company_id): array {
+            $domain = $this->getCompanyInfo($company_id)["domain"];
             $data = [
-                "id" => $product_id
+                "id" => $company_id
             ];
-            $query = 'SELECT * FROM products WHERE id = :id';
+            $query = 'SELECT * FROM products WHERE companyid = :id ORDER BY hits DESC LIMIT 5';
             $statement = $this->db->prepare($query);
             $statement->execute($data);
 
-            $product = $statement->fetch(\PDO::FETCH_ASSOC);
-            $product["domain"] = $this->getCompanyInfo($product["companyid"])["domain"];
-            return $product;
+            $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($products as $k => $prod){
+                $products[$k]["domain"] = $domain;
+            }
+            return $products;
         }
 
         public function addProductHit($product_id): void {
@@ -125,10 +136,10 @@
             $statement->execute($data);
         }
 
-        public function fixProductNulls(): void {
-            $this->db->query("UPDATE products SET hits = 0 WHERE hits IS NULL");
-            $this->db->query("ALTER TABLE products ALTER COLUMN hits INTEGER NOT NULL");
-        }
+        // public function fixProductNulls(): void {
+        //     $this->db->query("UPDATE products SET hits = 0 WHERE hits IS NULL");
+        //     $this->db->query("ALTER TABLE products ALTER COLUMN hits int NOT NULL");
+        // }
 
         public function addUser($fname, $lname, $email, $address, $homephone, $cell, $username, $password): void {
             $data = [
