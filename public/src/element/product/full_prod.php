@@ -6,5 +6,10 @@
 <p class="prod-desc">
     <?=$prod["description"]?>
 </p>
-<p class="prod-price"><?=$prod["price"]?></p>
-<p class="prod-views">Views: <?=$prod["hits"]?></p>
+<p class="prod-price"><?=$prod["price"]?></p><?php
+    if(isset($prod["avgrating"])){
+        echo "<p class=\"prod-rating\">";
+        echo "Rating: ".$prod["avgrating"];
+        echo "</p>";
+    }
+?><p class="prod-views">Views: <?=$prod["hits"]?></p>
