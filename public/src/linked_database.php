@@ -22,7 +22,7 @@
             $temp = $this->db->query("SHOW TABLES")->fetchAll();
             $ret = [];
             foreach($temp as $x){
-                var_dump($x);
+                var_dump($x[0]);
                 $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x[0])->fetchAll();
             }
             return $ret;
