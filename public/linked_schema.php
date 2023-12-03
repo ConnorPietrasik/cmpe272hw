@@ -1,4 +1,5 @@
 <?php
+    $title = "Linked Schema";
     include("src/element/head.php");
     require_once("src/linked_database.php");
     $tables = $db->getAllTables();

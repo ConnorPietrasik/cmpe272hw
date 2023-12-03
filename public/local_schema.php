@@ -1,4 +1,5 @@
 <?php
+    $title = "Local Schema";
     include("src/element/head.php");
     require_once("src/database.php");
     $tables = $db->getAllTables();

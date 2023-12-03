@@ -1,4 +1,5 @@
 <?php
+    $title = "All Linked DB Info";
     include("src/element/head.php");
     require_once("src/linked_database.php");
     $tables = $db->getAllInfo();
