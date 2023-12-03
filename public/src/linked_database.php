@@ -83,8 +83,8 @@
             $statement->execute($data);
 
             $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            foreach ($products as $prod){
-                $prod["domain"] = $domain;
+            foreach ($products as $k => $prod){
+                $products[$k]["domain"] = $domain;
             }
             return $products;
         }
