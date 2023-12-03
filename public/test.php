@@ -6,11 +6,11 @@
     $companies = [1, 2, 3];
     foreach ($companies as $c){
         echo "<h3>$c</h3>";
-        $data = $db->getTopProductsHitsByCompany($c);
+        $products = $db->getTopProductsHitsByCompany($c);
         include("src/element/product/full_products.php");
     }
     
     echo "<h3>All</h3>";
-    $data = $db->getTopProductsHitsCombined();
+    $products = $db->getTopProductsHitsCombined();
     include("src/element/product/full_products.php");
 ?>
