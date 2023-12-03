@@ -7,4 +7,4 @@
     <?=$prod["description"]?>
 </p>
 <p class="prod-price"><?=$prod["price"]?></p>
-<p class="prod-views"><?=$prod["hits"]?></p>
+<p class="prod-views">Views: <?=$prod["hits"]?></p>
