@@ -1,5 +1,5 @@
 <?php
-    include("src/head.php");
+    include("src/element/head.php");
     require_once("src/linked_database.php");
     $tables = $db->getAllTables();
     if (!empty($tables)){
