@@ -1,4 +1,5 @@
 <?php
+    $title = "Testing";
     include("src/element/head.php");
     require_once("src/linked_database.php");
     $products = [

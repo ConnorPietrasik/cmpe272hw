@@ -52,6 +52,24 @@
             $statement->execute($data);
         }
 
+        public function addUser($fname, $lname, $email, $address, $homephone, $cell, $username, $password): void {
+            $data = [
+                "fn" => $fname,
+                "ln" => $lname,
+                "em" => $email,
+                "ad" => $address,
+                "hp" => $homephone,
+                "cp" => $cell,
+                "un" => $username,
+                "pw" => $password
+            ];
+
+            $query = 'INSERT INTO users (firstname, lastname, email, address, homephone, cellphone, username, password) 
+                        VALUES (:fn, :ln, :em, :ad, :hp, :cp, :un, :pw)';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+        }
+
         public function getAllTables(): array {
             $temp = $this->db->query("SHOW TABLES")->fetchAll();
             $ret = [];
@@ -110,22 +128,6 @@
             $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
             return $users;
         }
-
-        public function addUser($first_name, $last_name, $email = null, $address = null, $home_phone = null, $cell_phone = null){
-            $query = 'INSERT INTO user (first_name, last_name, email, home, home_phone, cell_phone) VALUES (:fn, :ln, :em, :ad, :hp, :cp)';
-            $statement = $this->db->prepare($query);
-            $statement->bindParam('fn', $first_name);
-            $statement->bindParam('ln', $last_name);
-            $statement->bindParam('em', $email);
-            $statement->bindParam('ad', $address);
-            $statement->bindParam('hp', $home_phone);
-            $statement->bindParam('cp', $cell_phone);
-
-            $statement->execute();
-        }
-
-        
-
     }
 
     $db = new Database;
