@@ -4,7 +4,7 @@
     echo "<h2>Top 5 Products by Viewcount</h2>";
     $companies = $db->getAllCompanies();
     $width = 100 / count($companies);
-    echo "<table class=\"layout\"><tr>";
+    echo "<table class=\"layout\" style=\"width: 100%;\"><tr>";
     foreach ($companies as $c){
         echo "<td class=\"column\" style=\"border: 1px solid; width: ".$width."%;\">";
         echo "<h3>".$c["name"]."</h3>";
