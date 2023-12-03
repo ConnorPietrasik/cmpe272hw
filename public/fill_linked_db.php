@@ -25,9 +25,15 @@
     // var_dump($products);
     // echo "</pre>";
 
-    $u = ["ConnorTest", "The First", "Testing@gmail.com", "1234 Test St.", 1111111111, 2222222222, "connortest", "pass"];
-    $db->addUser($u[0], $u[1], $u[2], $u[3], $u[4], $u[5], $u[6], $u[7]);
+    $users = [
+        //["ConnorTest", "The First", "Testing@gmail.com", "1234 Test St.", 1111111111, 2222222222, "connortest", "pass"],
+        ["ConnorTest2", "The Second", "Testing2@gmail.com", "1234 Test St.", null, 1234567890, "connortest2", "pass"],
+        ["ConnorTest3", "The Third", "Testing3@gmail.com", "1234 Test St.", null, 3333333333, "connortest", "pass"]
+    ];
+    foreach ($users as $u){
+        $db->addUser($u[0], $u[1], $u[2], $u[3], $u[4], $u[5], $u[6], $u[7]);
+    }
     echo "Added:<pre>";
-    var_dump($u);
+    var_dump($users);
     echo "</pre>";
 ?>
