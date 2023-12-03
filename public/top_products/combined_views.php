@@ -1,9 +1,9 @@
 <?php
     $title = "Combined Top Products by Views";
-    include("src/element/head.php");
-    require_once("src/linked_database.php");
+    include($_SERVER["DOCUMENT_ROOT"]."/src/element/head.php");
+    require_once($_SERVER["DOCUMENT_ROOT"]."/src/linked_database.php");
 
     echo "<h2>Top 5 Products by Viewcount</h2>";
     $products = $db->getTopProductsHitsCombined();
-    include("src/element/product/full_products.php");
+    include($_SERVER["DOCUMENT_ROOT"]."/src/element/product/full_products.php");
 ?>
