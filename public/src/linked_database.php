@@ -18,6 +18,12 @@
             }
         }
 
+        public function decorateProducts(&$products): void {
+            foreach ($products as $k => $prod){
+                $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
+            }
+        }
+
         public function addCompanyToDB($name, $domain): void {
             $query = 'INSERT INTO company (name, domain) VALUES (:na, :do)';
             $statement = $this->db->prepare($query);
@@ -127,15 +133,32 @@
 
         public function getTopProductsRatingCombined(): array {
             //$products = $this->db->query("SELECT productid, AVG(rating) AS avgrating FROM ratings GROUP BY productid")->fetchAll(\PDO::FETCH_ASSOC);
-            $products = $this->db->query("SELECT products.*, AVG(ratings.rating) as avgrating
+            $products = $this->db->query('SELECT products.*, AVG(ratings.rating) as avgrating
             from products INNER JOIN ratings on products.id = ratings.productid
             GROUP BY products.id
             ORDER BY avgrating DESC
-            LIMIT 5")->fetchAll(\PDO::FETCH_ASSOC);
+            LIMIT 5')->fetchAll(\PDO::FETCH_ASSOC);
             
-            foreach ($products as $k => $prod){
-                $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
-            }
+            $this->decorateProducts($products);
+            return $products;
+        }
+
+        public function getTopProductsRatingByCompany($company_id): array {
+            $domain = $this->getCompanyInfo($company_id)["domain"];
+            $data = [
+                "id" => $company_id
+            ];
+            $query = 'SELECT products.*, AVG(ratings.rating) as avgrating
+            from products INNER JOIN ratings on products.id = ratings.productid
+            WHERE products.companyid = :id
+            GROUP BY products.id
+            ORDER BY avgrating DESC
+            LIMIT 5';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+            
+            $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            $this->decorateProducts($products);
             return $products;
         }
 
