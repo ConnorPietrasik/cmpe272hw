@@ -27,6 +27,17 @@
             $statement->execute();
         }
 
+        public function changeCompanyDomain($name, $domain): void {
+            $data = [
+                "na" => $name,
+                "do" => $domain
+            ];
+
+            $query = 'UPDATE company SET domain = :do WHERE name = :na';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+        }
+
         public function getAllTables(): array {
             $temp = $this->db->query("SHOW TABLES")->fetchAll();
             $ret = [];
