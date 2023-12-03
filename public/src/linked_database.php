@@ -130,12 +130,12 @@
             $products = $this->db->query("SELECT products.*, AVG(ratings.rating) as avgrating
             from products INNER JOIN ratings on products.id = ratings.productid
             GROUP BY products.id
-            ORDER BY avgrating DESC")->fetchAll(\PDO::FETCH_ASSOC);
+            ORDER BY avgrating DESC
+            LIMIT 5")->fetchAll(\PDO::FETCH_ASSOC);
             
-
-            // foreach ($products as $k => $prod){
-            //     $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
-            // }
+            foreach ($products as $k => $prod){
+                $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
+            }
             return $products;
         }
 

@@ -2,3 +2,5 @@ Add top by rating
 Update user tracking
 Add login stuff
 Fix most viewed local products
+
+Improve domain adding to stop so many db calls
