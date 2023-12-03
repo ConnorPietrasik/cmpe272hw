@@ -2,7 +2,7 @@
 <img src="<?php 
     if(isset($prod["img"])) echo $prod["domain"]."/images/".$prod["img"];
     else echo "https://cmpe272hw.pietrasik.top/images/Missing.png";
-?>" alt="<?=$prod["name"]?> image" class="prod-pic">
+?>" alt="<?=$prod["name"]?> image" class="prod-pic" style="width: 150px; height: 150px;">
 <p class="prod-desc">
     <?=$prod["description"]?>
 </p>
