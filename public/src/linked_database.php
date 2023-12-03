@@ -126,9 +126,13 @@
         }
 
         public function getTopProductsRatingCombined(): array {
-            $products = $this->db->query("SELECT productid, AVG(rating) AS avgrating FROM ratings GROUP BY productid")->fetchAll(\PDO::FETCH_ASSOC);
+            //$products = $this->db->query("SELECT productid, AVG(rating) AS avgrating FROM ratings GROUP BY productid")->fetchAll(\PDO::FETCH_ASSOC);
+            $products = $this->db->query("SELECT products.* from products
+            INNER JOIN ratings on products.id = ratings.productid
+            GROUP BY products.id
+            ORDER BY ratings.rating")->fetchAll(\PDO::FETCH_ASSOC);
             
-            
+
             // foreach ($products as $k => $prod){
             //     $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
             // }
