@@ -1,6 +1,7 @@
 <?php
+    $title = "testing";
     include("src/element/head.php");
-    require_once("src/database.php");
+    require_once("src/linked_database.php");
 
     echo "<h3>Company</h3>";
     $data = $db->getCompanyInfo(3);
