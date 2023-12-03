@@ -22,6 +22,7 @@
             $temp = $this->db->query("SHOW TABLES")->fetchAll(\PDO::FETCH_ASSOC);
             $ret = [];
             foreach($temp as $x){
+                var_dump($x);
                 $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x["Tables_in_mp_marketplacedb"])->fetchAll(\PDO::FETCH_ASSOC);
             }
             return $ret;
