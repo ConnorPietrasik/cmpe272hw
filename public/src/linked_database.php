@@ -23,7 +23,7 @@
             $ret = [];
             foreach($temp as $x){
                 var_dump($x[0]);
-                $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x[0])->fetchAll();
+                $ret[] = $this->db->query("SHOW COLUMNS FROM ".$x[0])->fetchAll(\PDO::FETCH_ASSOC);
             }
             return $ret;
         }
