@@ -27,6 +27,17 @@
             $statement->execute();
         }
 
+        public function getCompanyInfo($company_id): array {
+            $data = [
+                "id" => $company_id
+            ];
+            $query = 'SELECT * FROM company WHERE companyid = :id';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+
+            return $statement->fetch(\PDO::FETCH_ASSOC);
+        }
+
         public function changeCompanyDomain($name, $domain): void {
             $data = [
                 "na" => $name,
@@ -52,6 +63,32 @@
             $statement->execute($data);
         }
 
+        public function getAllProducts(): array {
+            $query = 'SELECT * FROM products';
+            $statement = $this->db->prepare($query);
+            $statement->execute();
+
+            $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            return $users;
+        }
+
+        public function getProductsByCompany($company_id){
+            $domain = $this->getCompanyInfo($company_id)["domain"];
+
+            $data = [
+                "id" => $company_id
+            ];
+            $query = 'SELECT * FROM products WHERE companyid = :id';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+
+            $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($products as $prod){
+                $prod["domain"] = $domain;
+            }
+            return $products;
+        }
+
         public function addUser($fname, $lname, $email, $address, $homephone, $cell, $username, $password): void {
             $data = [
                 "fn" => $fname,
@@ -68,37 +105,6 @@
                         VALUES (:fn, :ln, :em, :ad, :hp, :cp, :un, :pw)';
             $statement = $this->db->prepare($query);
             $statement->execute($data);
-        }
-
-        public function addReview($userid, $productid, $rating, $review): void {
-            $data = [
-                "ui" => $userid,
-                "pi" => $productid,
-                "ra" => $rating,
-                "re" => $review
-            ];
-
-            $query = 'INSERT INTO ratings (userid, productid, rating, review) VALUES (:ui, :pi, :ra, :re)';
-            $statement = $this->db->prepare($query);
-            $statement->execute($data);
-        }
-
-        public function getAllTables(): array {
-            $temp = $this->db->query("SHOW TABLES")->fetchAll();
-            $ret = [];
-            foreach($temp as $x){
-                $ret[$x[0]] = $this->db->query("SHOW COLUMNS FROM ".$x[0])->fetchAll(\PDO::FETCH_ASSOC);
-            }
-            return $ret;
-        }
-
-        public function getAllInfo(): array {
-            $temp = $this->db->query("SHOW TABLES")->fetchAll();
-            $ret = [];
-            foreach($temp as $x){
-                $ret[$x[0]] = $this->db->query("SELECT * FROM ".$x[0])->fetchAll(\PDO::FETCH_ASSOC);
-            }
-            return $ret;
         }
 
         public function getAllUsers(): array {
@@ -140,6 +146,37 @@
             $statement->execute($args);
             $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
             return $users;
+        }
+
+        public function addReview($userid, $productid, $rating, $review): void {
+            $data = [
+                "ui" => $userid,
+                "pi" => $productid,
+                "ra" => $rating,
+                "re" => $review
+            ];
+
+            $query = 'INSERT INTO ratings (userid, productid, rating, review) VALUES (:ui, :pi, :ra, :re)';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+        }
+
+        public function getAllTables(): array {
+            $temp = $this->db->query("SHOW TABLES")->fetchAll();
+            $ret = [];
+            foreach($temp as $x){
+                $ret[$x[0]] = $this->db->query("SHOW COLUMNS FROM ".$x[0])->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            return $ret;
+        }
+
+        public function getAllInfo(): array {
+            $temp = $this->db->query("SHOW TABLES")->fetchAll();
+            $ret = [];
+            foreach($temp as $x){
+                $ret[$x[0]] = $this->db->query("SELECT * FROM ".$x[0])->fetchAll(\PDO::FETCH_ASSOC);
+            }
+            return $ret;
         }
     }
 

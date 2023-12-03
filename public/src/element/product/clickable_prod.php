@@ -1,11 +1,11 @@
-<button name="<?=$prod?>">
-    <h3 class="prod-name"><?=$prod?></h3>
+<button name="<?=$prod["name"]?>">
+    <h3 class="prod-name"><?=$prod["name"]?></h3>
     <br>
-    <img src="/products/<?=$prod?>/main.png" alt="<?=$prod?> image" class="prod-pic">
+    <img src="<?=$prod["domain"]?>/images/<?=$prod["img"]?>" alt="<?=$prod["name"]?> image" class="prod-pic">
 </button>
 <p class="prod-desc">
-    <?php readfile($_SERVER['DOCUMENT_ROOT']."/products/$prod/desc.txt"); ?>
+    <?=$prod["description"]?>
 </p>
 <p class="prod-price">
-    <?php readfile($_SERVER['DOCUMENT_ROOT']."/products/$prod/price.txt"); ?>
+    $<?=$$prod["price"]?>
 </p>

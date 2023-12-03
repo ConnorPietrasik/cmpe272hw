@@ -8,6 +8,10 @@
 <a class="most-viewed" href="most_viewed_products.php">Most viewed</a>
 
 <?php 
-    $products = scandir('products');
+    require_once("src/linked_database.php");
+    $products = $db->getProductsByCompany(3);
     include("src/element/product/clickable_products.php");
+
+    // $products = scandir('products');
+    // include("src/element/product/clickable_products.php");
 ?>
