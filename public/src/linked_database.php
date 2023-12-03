@@ -127,7 +127,7 @@
 
         public function fixProductNulls(): void {
             $this->db->query("UPDATE products SET hits = 0 WHERE hits IS NULL");
-            $this->db->query("ALTER TABLE products ALTER COLUMN hits int(11) NOT NULL");
+            $this->db->query("ALTER TABLE products ALTER COLUMN hits int NOT NULL");
         }
 
         public function addUser($fname, $lname, $email, $address, $homephone, $cell, $username, $password): void {
