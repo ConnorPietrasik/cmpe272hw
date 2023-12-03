@@ -18,6 +18,15 @@
             }
         }
 
+        public function addCompanyToDB($name, $domain): void {
+            $query = 'INSERT INTO company (name, domain) VALUES (:na, :do)';
+            $statement = $this->db->prepare($query);
+            $statement->bindParam('na', $name);
+            $statement->bindParam('do', $domain);
+
+            $statement->execute();
+        }
+
         public function getAllTables(): array {
             $temp = $this->db->query("SHOW TABLES")->fetchAll();
             $ret = [];
