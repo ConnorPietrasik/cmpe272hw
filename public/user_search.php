@@ -34,7 +34,7 @@
 <br>
 <?php
     if (!empty($_GET)){
-        require_once("src/linked_database.php");
+        require_once("src/database.php");
         $data = $db->searchUsers($_GET["first_name"] ?: null, $_GET["last_name"] ?: null, $_GET["email"] ?: null, $_GET["phone"] ?: null);
         if (!empty($data)){
             include("src/element/table_display.php");

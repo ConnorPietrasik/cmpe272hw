@@ -18,6 +18,10 @@
             }
         }
 
+        public function getAllTables(): array {
+            return $this->db->query("SHOW TABLES")->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
         public function getAllUsers(): array {
             $query = 'SELECT * FROM user';
             $statement = $this->db->prepare($query);
