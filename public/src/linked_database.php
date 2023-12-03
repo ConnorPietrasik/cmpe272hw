@@ -27,6 +27,10 @@
             $statement->execute();
         }
 
+        public function getAllCompanies(): array {
+            return $this->db->query("SELECT * FROM company")->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
         public function getCompanyInfo($company_id): array {
             $data = [
                 "id" => $company_id
@@ -64,12 +68,7 @@
         }
 
         public function getAllProducts(): array {
-            $query = 'SELECT * FROM products';
-            $statement = $this->db->prepare($query);
-            $statement->execute();
-
-            $users = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            return $users;
+            return $this->db->query("SELECT * FROM products")->fetchAll(\PDO::FETCH_ASSOC);
         }
 
         public function getProductsByCompany($company_id): array {
