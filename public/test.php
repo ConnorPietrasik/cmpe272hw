@@ -8,9 +8,9 @@
     include("src/element/table_display.php");
 
     echo "<h3>Products</h3>";
-    echo "<pre>";
     $data = $db->getProductsByCompany(3);
-    var_dump($data);
-    echo "</pre>";
-    //include("src/element/table_display.php");
+    // echo "<pre>";
+    // var_dump($data);
+    // echo "</pre>";
+    include("src/element/table_display.php");
 ?>
