@@ -38,6 +38,20 @@
             $statement->execute($data);
         }
 
+        public function addProduct($name, $description, $price, $img, $company_id): void {
+            $data = [
+                "na" => $name,
+                "de" => $description,
+                "pr" => $price,
+                "im" => $img,
+                "co" => $company_id
+            ];
+
+            $query = 'INSERT INTO products (name, description, price, img, hits, companyid) VALUES (:na, :de, :pr, :im, 0, :co)';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+        }
+
         public function getAllTables(): array {
             $temp = $this->db->query("SHOW TABLES")->fetchAll();
             $ret = [];
