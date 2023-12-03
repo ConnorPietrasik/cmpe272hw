@@ -6,9 +6,9 @@
     echo "<h2>Top 5 Products by Viewcount</h2>";
     $companies = $db->getAllCompanies();
     $width = (int) 100 / count($companies);
-    echo "<table class=\"layout\" style=\"border-left: 1em solid\"><tr>";
+    echo "<table class=\"layout\"><tr>";
     foreach ($companies as $c){
-        echo "<td class=\"column\" style=\"width: ".$width."%\">";
+        echo "<td class=\"column\" style=\"border-left: 1px solid; width: ".$width."%;\">";
         echo "<h3>".$c["name"]."</h3>";
         $products = $db->getTopProductsHitsByCompany($c["id"]);
         include($_SERVER["DOCUMENT_ROOT"]."/src/element/product/full_products.php");
