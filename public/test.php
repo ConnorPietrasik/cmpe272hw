@@ -1,8 +1,10 @@
 <?php
     require_once("src/linked_database.php");
-    $data = $db->getAllTables();
-    if (!empty($data)){
-        include("src/element/table_display.php");
+    $tables = $db->getAllTables();
+    if (!empty($tables)){
+        foreach($tables as $data){
+            include("src/element/table_display.php");
+        }
     }
     else echo "<p>No matching tables.</p>";
 ?>
