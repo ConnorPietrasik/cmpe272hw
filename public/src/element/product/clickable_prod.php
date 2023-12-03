@@ -6,6 +6,4 @@
 <p class="prod-desc">
     <?=$prod["description"]?>
 </p>
-<p class="prod-price">
-    <?=$prod["price"]?>
-</p>
+<p class="prod-price"><?=$prod["price"]?></p>
