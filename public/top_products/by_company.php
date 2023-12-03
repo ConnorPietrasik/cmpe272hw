@@ -8,7 +8,7 @@
     $width = (int) 100 / count($companies);
     echo "<table class=\"layout\"><tr>";
     foreach ($companies as $c){
-        echo "<td class=\"column\" style=\"border-left: 1px solid; width: ".$width."%;\">";
+        echo "<td class=\"column\" style=\"border: 1px solid; width: ".$width."%;\">";
         echo "<h3>".$c["name"]."</h3>";
         $products = $db->getTopProductsHitsByCompany($c["id"]);
         include($_SERVER["DOCUMENT_ROOT"]."/src/element/product/full_products.php");
