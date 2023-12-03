@@ -1,3 +1,4 @@
 Add top by rating
 Update user tracking
 Add login stuff
+Fix most viewed local products
