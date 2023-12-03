@@ -70,6 +70,19 @@
             $statement->execute($data);
         }
 
+        public function addReview($userid, $productid, $rating, $review): void {
+            $data = [
+                "ui" => $userid,
+                "pi" => $productid,
+                "ra" => $rating,
+                "re" => $review
+            ];
+
+            $query = 'INSERT INTO ratings (userid, productid, rating, review) VALUES (:ui, :pi, :ra, :re)';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+        }
+
         public function getAllTables(): array {
             $temp = $this->db->query("SHOW TABLES")->fetchAll();
             $ret = [];
