@@ -21,9 +21,8 @@
         public function getAllTables(): array {
             $temp = $this->db->query("SHOW TABLES")->fetchAll(\PDO::FETCH_ASSOC);
             $ret = [];
-            var_dump($temp);
             foreach($temp as $x){
-                $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x)->fetchAll(\PDO::FETCH_ASSOC);
+                $ret[$x] = $this->db->query("SHOW COLUMNS FROM ".$x["Tables_in_mp_marketplacedb"])->fetchAll(\PDO::FETCH_ASSOC);
             }
             return $ret;
         }
