@@ -31,7 +31,7 @@
             $data = [
                 "id" => $company_id
             ];
-            $query = 'SELECT * FROM company WHERE companyid = :id';
+            $query = 'SELECT * FROM company WHERE id = :id';
             $statement = $this->db->prepare($query);
             $statement->execute($data);
 
