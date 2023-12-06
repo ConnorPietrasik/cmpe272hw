@@ -175,7 +175,7 @@
             $statement = $this->db->prepare($query);
             $statement->execute($data);
 
-            return $statement->fetchColumn();
+            return $statement->fetchColumn() ?? 0;
         }
 
         public function addProductHit($product_id): void {
