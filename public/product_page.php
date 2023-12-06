@@ -41,4 +41,6 @@
 
     $data = $db->getReviewsByProduct($prod_id);
     include("src/element/table_display.php");
+
+    include("src/element/review/add_form.php");
 ?>
