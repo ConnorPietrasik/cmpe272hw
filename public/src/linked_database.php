@@ -18,6 +18,11 @@
             }
         }
 
+        public function decorateOneProduct(&$product): void {
+            $product["domain"] = $this->getCompanyInfo($product["companyid"])["domain"];
+            $product["avgrating"] = $this->getProductRating($product["id"]);
+        }
+
         public function decorateProducts(&$products, $domain=null): void {
             foreach ($products as $k => $prod) {
                 $products[$k]["domain"] = isset($domain) ? $domain : $this->getCompanyInfo($prod["companyid"])["domain"];
@@ -104,7 +109,7 @@
             $statement->execute($data);
 
             $product = $statement->fetch(\PDO::FETCH_ASSOC);
-            $this->decorateProducts([$product]);
+            $this->decorateOneProduct($product);
             //$product["domain"] = $this->getCompanyInfo($product["companyid"])["domain"];
             return $product;
         }
