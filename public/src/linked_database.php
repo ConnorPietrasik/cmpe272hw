@@ -265,6 +265,19 @@
             $statement->execute($data);
         }
 
+        public function getReviewsByProduct($product_id): array {
+            $data = [
+                "id" => $product_id
+            ];
+
+            $query = 'SELECT * FROM reviews WHERE productid = :id';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+
+            $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
+            return $products;
+        }
+
         public function getAllTables(): array {
             $temp = $this->db->query("SHOW TABLES")->fetchAll();
             $ret = [];

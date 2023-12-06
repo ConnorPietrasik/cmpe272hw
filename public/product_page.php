@@ -32,9 +32,12 @@
     include("src/element/head.php");
 
     $prod_id = array_keys($_POST)[0];
+    $db->addProductHit($prod_id);
+
     require_once("src/linked_database.php");
     $prod = $db->getProductById($prod_id);
     include("src/element/product/full_prod.php");
 
-    $db->addProductHit($prod_id);
+    $data = $db->getReviewsByProduct($prod_id);
+    include("src/element/table_display.php");
 ?>
