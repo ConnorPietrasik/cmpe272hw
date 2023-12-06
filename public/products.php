@@ -9,11 +9,11 @@ include("src/element/head.php");
 <br>
 <h4>Marketplace tops</h4>
 <table>
-    <th>
-    <td> </td>
-    <td>By company</td>
-    <td>Combined</td>
-    </th>
+    <tr>
+        <td> </td>
+        <td>By company</td>
+        <td>Combined</td>
+    </tr>
     <tr>
         <td>Rating</td>
         <td><a class="marketplace-top-rated-company" href="/top_products/by_company_rating.php">By company top rated</a></td>
