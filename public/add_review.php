@@ -4,14 +4,15 @@
     if (!empty($_POST)) {
         if (empty($_POST["rating"])) {
             echo "<p class=\"error\">Missing rating</p>";
-            die()
+            die();
         }
         if ($_POST["rating"] < 1 || $_POST["rating"] > 5) {
             echo "<p class=\"error\">Bad rating input</p>";
-            die()
+            die();
         }
         if (empty($_COOKIE) || empty($_COOKIE["userid"])) {
             echo "<p class=\"error\">Not logged in</p>";
+            die();
         }
 
         require_once("src/linked_database.php");
