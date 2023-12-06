@@ -23,16 +23,9 @@
         </td>
         <td class="column" style="width: 50%">
             <h2>Globally Most-Viewed Products:</h2>
-            <?php 
-                $products = array_diff(scandir('products'), [".", ".."]);
-
-                $counts = [];
-                foreach($products as $prod){
-                    $counts[$prod] = trim(file_get_contents("products/$prod/view_count.txt"));
-                }
-                arsort($counts);
-
-                $products = array_keys(array_slice($counts, 0, 5));
+            <?php
+                require_once("src/linked_database.php");
+                $products = $db->getTopProductsHitsByCompany(3);
                 include("src/element/product/clickable_products.php");
             ?>
         </td>
