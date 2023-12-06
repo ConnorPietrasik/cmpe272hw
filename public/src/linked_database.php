@@ -76,7 +76,7 @@
 
         public function getAllProducts(): array {
             $products = $this->db->query("SELECT * FROM products")->fetchAll(\PDO::FETCH_ASSOC);
-            $this->decorateProducts($products)
+            $this->decorateProducts($products);
             return $products;
         }
 
