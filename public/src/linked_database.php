@@ -18,9 +18,10 @@
             }
         }
 
-        public function decorateProducts(&$products): void {
-            foreach ($products as $k => $prod){
-                $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
+        public function decorateProducts(&$products, $domain=null): void {
+            foreach ($products as $k => $prod) {
+                $products[$k]["domain"] = isset($domain) ? $domain : $this->getCompanyInfo($prod["companyid"])["domain"];
+                $products[$k]["avgrating"] = $this->getProductRating($prod["id"]);
             }
         }
 
@@ -74,7 +75,9 @@
         }
 
         public function getAllProducts(): array {
-            return $this->db->query("SELECT * FROM products")->fetchAll(\PDO::FETCH_ASSOC);
+            $products = $this->db->query("SELECT * FROM products")->fetchAll(\PDO::FETCH_ASSOC);
+            $this->decorateProducts($products)
+            return $products;
         }
 
         public function getProductsByCompany($company_id): array {
@@ -88,9 +91,7 @@
             $statement->execute($data);
 
             $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            foreach ($products as $k => $prod){
-                $products[$k]["domain"] = $domain;
-            }
+            $this->decorateProducts($products, $domain);
             return $products;
         }
 
@@ -103,15 +104,14 @@
             $statement->execute($data);
 
             $product = $statement->fetch(\PDO::FETCH_ASSOC);
-            $product["domain"] = $this->getCompanyInfo($product["companyid"])["domain"];
+            $this->decorateProducts([$product]);
+            //$product["domain"] = $this->getCompanyInfo($product["companyid"])["domain"];
             return $product;
         }
 
         public function getTopProductsHitsCombined(): array {
             $products = $this->db->query("SELECT * FROM products ORDER BY hits DESC LIMIT 5")->fetchAll(\PDO::FETCH_ASSOC);
-            foreach ($products as $k => $prod){
-                $products[$k]["domain"] = $this->getCompanyInfo($prod["companyid"])["domain"];
-            }
+            $this->decorateProducts($products);
             return $products;
         }
 
@@ -125,9 +125,7 @@
             $statement->execute($data);
 
             $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            foreach ($products as $k => $prod){
-                $products[$k]["domain"] = $domain;
-            }
+            $this->decorateProducts($products, $domain);
             return $products;
         }
 
@@ -158,8 +156,21 @@
             $statement->execute($data);
             
             $products = $statement->fetchAll(\PDO::FETCH_ASSOC);
-            $this->decorateProducts($products);
+            $this->decorateProducts($products, $domain);
             return $products;
+        }
+
+        public function getProductRating($product_id): float {
+            $data = [
+                "id" => $product_id
+            ];
+            $query = 'SELECT AVG(ratings.rating) as avgrating
+                from ratings 
+                WHERE productid = :id';
+            $statement = $this->db->prepare($query);
+            $statement->execute($data);
+
+            return $statement->fetchColumn();
         }
 
         public function addProductHit($product_id): void {
