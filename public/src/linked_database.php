@@ -270,7 +270,7 @@
                 "id" => $product_id
             ];
 
-            $query = 'SELECT * FROM reviews WHERE productid = :id';
+            $query = 'SELECT * FROM ratings WHERE productid = :id';
             $statement = $this->db->prepare($query);
             $statement->execute($data);
 
