@@ -4,3 +4,5 @@ Add login stuff
 Fix most viewed local products
 
 Improve domain adding to stop so many db calls
+Add ratings to all product displays
+Add review pages
