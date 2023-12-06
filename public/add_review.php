@@ -1,6 +1,6 @@
 <?php
     $title="Add Review";
-i   nclude("src/element/head.php");
+    include("src/element/head.php");
     if (!empty($_POST)) {
         if (empty($_POST["rating"])) {
             echo "<p class=\"error\">Missing rating</p>";

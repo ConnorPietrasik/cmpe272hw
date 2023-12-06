@@ -9,6 +9,6 @@
     <label for="review">Review:</label>
     <textarea id="review" name="review" rows="4" cols="50"><?= $review ?? '' ?></textarea>
     <br>
-    <input type="hidden" id="product_id" name="product_id" value="<?= $product_id ?>">
+    <input type="hidden" id="product_id" name="product_id" value="<?= $prod_id ?>">
     <input type="submit" value="Submit Review">
 </form>
